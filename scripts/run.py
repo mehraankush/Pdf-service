@@ -2,7 +2,7 @@ import os
 
 from src.main import process_pdf
 
-file_path = "data/input/sample2.pdf"
+file_path = "data/input/sample3.pdf"
 chunks = process_pdf(file_path)
 
 os.makedirs("data/output", exist_ok=True)

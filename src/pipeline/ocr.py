@@ -28,8 +28,8 @@ def ocr_pixmap(pixmap):
     elif pixmap.n == 1:  # Grayscale
         img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
     
-    # Run OCR
-    result = ocr.ocr(img, cls=True)
+    # Run OCR (angle classifier already enabled in PaddleOCR init)
+    result = ocr.ocr(img)
     
     # Extract text from result
     # PaddleOCR returns: [[[bbox], (text, confidence)], ...]

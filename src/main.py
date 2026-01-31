@@ -3,11 +3,13 @@ import fitz
 from src.pipeline.detector import detect_pdf_type
 from src.pipeline.extractor import extract_text, extract_images
 from src.pipeline.ocr import ocr_pixmap
+from src.pipeline.qr import decode_qr_from_pixmap
 from src.pipeline.cleaner import clean_text
 from src.pipeline.chunker import chunk_text
 
 MIN_TEXT_CHARS = 50
 RENDER_DPI = 300
+QR_RENDER_DPI = 200
 
 
 def _collect_text_pages(pdf_path: str):
@@ -93,6 +95,111 @@ def _append_ocr_text(full_text: str, ocr_results: list[str]):
     print(f"Total OCR text added: {sum(len(t) for t in ocr_results)} chars")
     return full_text
 
+
+def _qr_from_rendered_pages(pdf_path: str):
+    """Decode QR codes from rendered pages."""
+    results = []
+    doc = fitz.open(pdf_path)
+
+    print("Scanning rendered pages for QR codes...")
+    zoom = QR_RENDER_DPI / 72
+    for page_index, page in enumerate(doc):
+        page_number = page_index + 1
+        try:
+            pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
+            qr_values = decode_qr_from_pixmap(pix)
+            for value in qr_values:
+                results.append({"page": page_number, "value": value})
+        except Exception as e:
+            print(f"QR scan failed for page {page_number}: {e}")
+
+    doc.close()
+    return results
+
+
+def _qr_from_embedded_images(pdf_path: str):
+    """Decode QR codes from embedded images."""
+    results = []
+    images = extract_images(pdf_path)
+
+    print(f"Scanning {len(images)} embedded images for QR codes...")
+    for img in images:
+        try:
+            qr_values = decode_qr_from_pixmap(img["pixmap"])
+            for value in qr_values:
+                results.append({"page": img["page"], "value": value})
+        except Exception as e:
+            print(f"QR scan failed for image on page {img['page']}: {e}")
+
+    return results
+
+
+def _append_qr_text(full_text: str, qr_results: list[dict]):
+    """Append QR code values to the full text with a separator."""
+    if not qr_results:
+        return full_text
+
+    seen = set()
+    lines = []
+    for item in qr_results:
+        key = (item["page"], item["value"])
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"Page {item['page']}: {item['value']}")
+
+    if not lines:
+        return full_text
+
+    full_text += "\n\n=== QR CODES ===\n\n"
+    full_text += "\n".join(lines)
+    print(f"QR codes found: {len(lines)}")
+    return full_text
+
+
+def _extract_annotation_links(pdf_path: str):
+    """Extract URL links from PDF annotations."""
+    results = []
+    doc = fitz.open(pdf_path)
+
+    print("Scanning annotation links...")
+    for page_index, page in enumerate(doc):
+        page_number = page_index + 1
+        try:
+            for link in page.get_links():
+                uri = link.get("uri")
+                if uri:
+                    results.append({"page": page_number, "value": uri})
+        except Exception as e:
+            print(f"Annotation link scan failed for page {page_number}: {e}")
+
+    doc.close()
+    return results
+
+
+def _append_link_text(full_text: str, link_results: list[dict]):
+    """Append annotation link values to the full text with a separator."""
+    if not link_results:
+        return full_text
+
+    seen = set()
+    lines = []
+    for item in link_results:
+        key = (item["page"], item["value"])
+        if key in seen:
+            continue
+        seen.add(key)
+        lines.append(f"Page {item['page']}: {item['value']}")
+
+    if not lines:
+        return full_text
+
+    full_text += "\n\n=== ANNOTATION LINKS ===\n\n"
+    full_text += "\n".join(lines)
+    print(f"Annotation links found: {len(lines)}")
+    return full_text
+
+
 def process_pdf(pdf_path: str):
     """
     Process PDF and extract all text content.
@@ -115,6 +222,14 @@ def process_pdf(pdf_path: str):
     rendered_ocr, pages_ocr_full = _ocr_rendered_pages(pdf_path, pdf_type, page_text_len)
     image_ocr = _ocr_embedded_images(pdf_path, pdf_type, pages_ocr_full)
     full_text = _append_ocr_text(full_text, rendered_ocr + image_ocr)
+
+    # QR extraction from both rendered pages and embedded images.
+    qr_results = _qr_from_rendered_pages(pdf_path) + _qr_from_embedded_images(pdf_path)
+    full_text = _append_qr_text(full_text, qr_results)
+
+    # Extract link annotations (clickable text in PDFs).
+    link_results = _extract_annotation_links(pdf_path)
+    full_text = _append_link_text(full_text, link_results)
 
     print(f"Total text length: {len(full_text)} characters")
     
