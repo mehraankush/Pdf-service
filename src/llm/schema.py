@@ -28,6 +28,11 @@ export const BrochureAnalysisSchema = z.object({
             endTime: z.string().nullable(),
             time: z.string().nullable(),
         })).nullable(),
+        activities: z.array(z.object({
+            name: z.string(),
+            startTime: z.string().nullable(),
+            endTime: z.string().nullable(),
+        })).nullable(),
     }),
     format: z.string(),
     timeControl: z.string(),
@@ -53,6 +58,7 @@ export const BrochureAnalysisSchema = z.object({
             amount: z.string(),
             criteria: z.string().nullable(),
         })).nullable(),
+        nonCashAwards: z.array(z.string()).nullable(),
     }),
     entryFees: z.array(z.object({
         category: z.string(),
@@ -67,6 +73,14 @@ export const BrochureAnalysisSchema = z.object({
         howToRegister: z.string().nullable(),
         whereToRegister: z.string().nullable(),
         registrationLink: z.string().nullable(),
+        feeAmount: z.string().nullable(),
+        paymentDetails: z.object({
+            accountHolderName: z.string().nullable(),
+            bankName: z.string().nullable(),
+            branch: z.string().nullable(),
+            ifsc: z.string().nullable(),
+            accountNumber: z.string().nullable(),
+        }).nullable(),
     }),
     rules: z.array(z.string()).nullable(),
     eligibility: z.string().nullable(),
@@ -92,6 +106,7 @@ export const BrochureAnalysisSchema = z.object({
         name: z.string(),
         type: z.string().nullable(),
     })).nullable(),
+    recognisedBy: z.array(z.string()).nullable(),
     importantNotes: z.array(z.string()).nullable(),
     summary: z.string(),
 });

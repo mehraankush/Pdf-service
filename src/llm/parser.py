@@ -45,7 +45,7 @@ def _parse_with_gemini(content: str):
 
 
 def parse_with_llm(content: str):
-    sample_path = Path("data/output/sample4_extracted.txt")
+    sample_path = Path("data/output/sample3_extracted.txt")
     if sample_path.exists():
         content = sample_path.read_text(encoding="utf-8")
     result = _parse_with_gemini(content)
