@@ -220,7 +220,8 @@ def process_pdf(pdf_path: str):
 
     # OCR full pages when needed, then OCR embedded images for digital/hybrid PDFs.
     rendered_ocr, pages_ocr_full = _ocr_rendered_pages(pdf_path, pdf_type, page_text_len)
-    image_ocr = _ocr_embedded_images(pdf_path, pdf_type, pages_ocr_full)
+    # Temporarily disable embedded image OCR to speed up processing.
+    image_ocr = []
     full_text = _append_ocr_text(full_text, rendered_ocr + image_ocr)
 
     # QR extraction from both rendered pages and embedded images.

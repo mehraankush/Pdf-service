@@ -1,0 +1,364 @@
+{
+  "tournamentName": "1st Haflong International FIDE Rapid Rating Chess Tournament 2026",
+  "organizer": "District Sports Office, Dima Hasao in association with Dima Hasao Chess Association.",
+  "organizingCommittee": [
+    {
+      "name": "Sri Zagir Khan",
+      "role": "District Sports Co-ordinator & Planning Officer, Dima Hasao Autonomous Council cum President, Dima Hasao Chess Association"
+    },
+    {
+      "name": "Sri George Chutia",
+      "role": "District Sports Officer, Dima Hasao"
+    },
+    {
+      "name": "SNA Ronit Dey",
+      "role": "Tournament Director"
+    },
+    {
+      "name": "Rajib Dhar",
+      "role": "Honorary Secretary, All Assam Chess Association"
+    }
+  ],
+  "venue": {
+    "location": "NL Daulagupu Sports Stadium, Haflong, Dima Hasao",
+    "city": "Haflong",
+    "state": "Assam"
+  },
+  "dates": {
+    "registrationStart": null,
+    "registrationEnd": "6th February, 2026",
+    "tournamentStart": "8th February, 2026",
+    "tournamentEnd": "8th February, 2026"
+  },
+  "schedule": {
+    "rounds": 9,
+    "roundsSchedule": [
+      {
+        "roundNumber": 1,
+        "date": "8th February, 2026",
+        "startTime": "09:30 AM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 2,
+        "date": "8th February, 2026",
+        "startTime": "10:30 AM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 3,
+        "date": "8th February, 2026",
+        "startTime": "11:30 AM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 4,
+        "date": "8th February, 2026",
+        "startTime": "12:30 PM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 5,
+        "date": "8th February, 2026",
+        "startTime": "02:00 PM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 6,
+        "date": "8th February, 2026",
+        "startTime": "03:00 PM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 7,
+        "date": "8th February, 2026",
+        "startTime": "04:00 PM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 8,
+        "date": "8th February, 2026",
+        "startTime": "05:00 PM",
+        "endTime": null,
+        "time": null
+      },
+      {
+        "roundNumber": 9,
+        "date": "8th February, 2026",
+        "startTime": "06:00 PM",
+        "endTime": null,
+        "time": null
+      }
+    ]
+  },
+  "format": "FIDE Swiss System",
+  "timeControl": "10min + 5 sec increment from move 1",
+  "tieBreakers": [
+    "Latest FIDE/AICF rules shall come into effect"
+  ],
+  "eventCodes": [
+    "463809/AS(R)/2026"
+  ],
+  "categories": [
+    {
+      "name": "Open",
+      "description": null,
+      "isSpecial": false
+    },
+    {
+      "name": "U9 Boys/Girls",
+      "description": "Under 9 years",
+      "isSpecial": true
+    },
+    {
+      "name": "U11 Boys/Girls",
+      "description": "Under 11 years",
+      "isSpecial": true
+    },
+    {
+      "name": "U13 Boys/Girls",
+      "description": "Under 13 years",
+      "isSpecial": true
+    },
+    {
+      "name": "U15 Boys/Girls",
+      "description": "Under 15 years",
+      "isSpecial": true
+    },
+    {
+      "name": "Best Dima Hasao Player",
+      "description": null,
+      "isSpecial": true
+    },
+    {
+      "name": "Best Unrated Player",
+      "description": null,
+      "isSpecial": true
+    },
+    {
+      "name": "Best Female Player",
+      "description": null,
+      "isSpecial": true
+    },
+    {
+      "name": "Best Veteran Player",
+      "description": "Above 55 years",
+      "isSpecial": true
+    }
+  ],
+  "prizeFund": {
+    "total": "1,00,000",
+    "currency": "RS.",
+    "prizesByCategory": [
+      {
+        "category": "Open",
+        "prizes": [
+          {
+            "position": "1st",
+            "amount": "15,000.00"
+          },
+          {
+            "position": "2nd",
+            "amount": "10,000.00"
+          },
+          {
+            "position": "3rd",
+            "amount": "8,000.00"
+          },
+          {
+            "position": "4th",
+            "amount": "6,000.00"
+          },
+          {
+            "position": "5th",
+            "amount": "5,000.00"
+          },
+          {
+            "position": "6th",
+            "amount": "2,500.00"
+          },
+          {
+            "position": "7th",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "8th",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "9th",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "10th",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "11th-20th",
+            "amount": "1,000.00"
+          }
+        ]
+      },
+      {
+        "category": "U9/U11/U13/U15 (Boys/Girls)",
+        "prizes": [
+          {
+            "position": "1st",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "2nd",
+            "amount": "1,200.00"
+          },
+          {
+            "position": "3rd",
+            "amount": "1,000.00"
+          },
+          {
+            "position": "4th",
+            "amount": "Trophy"
+          },
+          {
+            "position": "5th",
+            "amount": "Trophy"
+          }
+        ]
+      },
+      {
+        "category": "Best Dima Hasao Player",
+        "prizes": [
+          {
+            "position": "1st",
+            "amount": "1,500.00"
+          },
+          {
+            "position": "2nd",
+            "amount": "1,200.00"
+          },
+          {
+            "position": "3rd",
+            "amount": "1,000.00"
+          },
+          {
+            "position": "4th",
+            "amount": "Trophy"
+          },
+          {
+            "position": "5th",
+            "amount": "Trophy"
+          }
+        ]
+      }
+    ],
+    "specialPrizes": [
+      {
+        "title": "Best Unrated Player",
+        "amount": "1,400.00",
+        "criteria": null
+      },
+      {
+        "title": "Best Female Player",
+        "amount": "1,400.00",
+        "criteria": null
+      },
+      {
+        "title": "Best Veteran Player",
+        "amount": "1,400.00",
+        "criteria": "Above 55 years"
+      }
+    ]
+  },
+  "entryFees": [
+    {
+      "category": "Open",
+      "amount": "500",
+      "lastDate": "6th February, 2026"
+    }
+  ],
+  "offers": [
+    {
+      "description": "Late entry fees",
+      "details": "₹ 1000/- after 6th February, 2026 6PM"
+    }
+  ],
+  "registration": {
+    "howToRegister": "Contact SNA Ronit Dey via phone or make a bank transfer to the provided account details. UPI payment also available.",
+    "whereToRegister": null,
+    "registrationLink": "upi://pay?pa=ronitdey111@oksbi&pn=Ronit%20Dey&aid=uGICAgICklLP8aA"
+  },
+  "rules": [
+    "The tournament will be conducted as per latest FIDE/AICF Laws of Chess and FIDE Swiss System.",
+    "Decision given by the Chief Arbiter will be final and binding.",
+    "Each participant must bring age proof along with them (specially u-9, u-11, u-13, u-15).",
+    "Mobile phones, all types of wrist watches and any kind of digital devices are not allowed during the games.",
+    "One player will be given one (higher) prize only.",
+    "In case of tie, the latest FIDE/AICF rules shall come into effect. The cash prize however will not be shared.",
+    "An appeals committee will be formed before the start of the tournament consisting of 3 members. The Appeals committee's decision will be final and binding on all the players concerned.",
+    "If any protest against the decision of chief arbiter, should be made in writing with protest fee of ₹5000/- within 15 minutes of occurrence on incidence. The fee amount shall be refunded if the appeal is upheld and if not then protest fee shall be forfeited.",
+    "In case of any dispute, the decision of the Tournament Organising Committee shall be final and binding."
+  ],
+  "eligibility": null,
+  "rating": {
+    "required": true,
+    "type": "FIDE Rapid",
+    "minRating": null
+  },
+  "benefits": [
+    "Promote the spirit of chess and provide a competitive platform for players across Assam."
+  ],
+  "arbiters": null,
+  "contacts": [
+    {
+      "name": "SNA Ronit Dey",
+      "role": "Registration Contact / Tournament Director",
+      "phone": "9678950903 / 9954114778",
+      "email": null,
+      "isImportant": true
+    },
+    {
+      "name": "Tapash Purusha",
+      "role": "Accommodation Contact",
+      "phone": "80116 77707",
+      "email": null,
+      "isImportant": false
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "District Sports Office, Dima Hasao",
+      "type": "Organizer/Patron"
+    },
+    {
+      "name": "Dima Hasao Chess Association",
+      "type": "Organizer"
+    },
+    {
+      "name": "All Assam Chess Association",
+      "type": "Recognizing Body"
+    },
+    {
+      "name": "AICF",
+      "type": "Recognizing Body"
+    },
+    {
+      "name": "World Chess Federation",
+      "type": "Recognizing Body"
+    },
+    {
+      "name": "Ishan Bharat Chess & Education Trust",
+      "type": "Technical Support"
+    }
+  ],
+  "importantNotes": [
+    "Participants have to arrange their accommodation on their own.",
+    "Accommodation available on payment basis."
+  ],
+  "summary": "The 1st Haflong International FIDE Rapid Rating Chess Tournament 2026, organized by the District Sports Office, Dima Hasao in association with Dima Hasao Chess Association, will be held on February 8, 2026, at NL Daulagupu Sports Stadium, Haflong, Assam. The tournament features a total prize pool of Rs. 1,00,000, with categories for Open, U9/U11/U13/U15 (Boys/Girls), Best Dima Hasao Player, Best Unrated, Best Female, and Best Veteran players. It will follow a 9-round FIDE Swiss System with a time control of 10 minutes + 5 seconds increment. Registration fee is ₹500, with a deadline of February 6, 2026."
+}
