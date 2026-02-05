@@ -1,5 +1,13 @@
 SCHEMA_INSTRUCTIONS = """
-You must return a JSON object that follows this schema (TypeScript/Zod):
+You must return a JSON object that follows this schema (TypeScript/Zod).
+Important parsing guidance:
+- The brochure text may contain flattened tables where ranks, categories, and amounts appear on the same line or columnar layout is lost.
+- Infer prize mappings by proximity and ordering. Example: "1st 2500 2nd 2000 3rd 1500 Trophy" means 1st=2500, 2nd=2000, 3rd=1500, and Trophy is a non-cash award.
+- If a line contains category words (e.g., Best, Female, Veteran, Youngest, Oldest, U-15, U-19), map the nearest amount or non-cash award to that category.
+- If amounts are missing but awards like Trophy/Certificate appear, capture them in prizeFund.nonCashAwards and/or specialPrizes with amount null.
+- Prefer extracting a best-effort value rather than leaving fields null when a nearby amount or award likely belongs to the label.
+- For schedule lines like "1st 09:15 am 2nd 10:15 am ... 9th 05:45 pm", treat each round number as a separate round and map its time to roundsSchedule.startTime.
+- If special prize labels (e.g., Youngest, Oldest, Best Academy) appear near a list of amounts, pair them in order. If amounts appear on the same line, still map by proximity.
 
 export const BrochureAnalysisSchema = z.object({
     tournamentName: z.string(),
@@ -96,9 +104,9 @@ export const BrochureAnalysisSchema = z.object({
         role: z.string().nullable(),
     })).nullable(),
     contacts: z.array(z.object({
-        name: z.string(),
+        name: z.string().nullable(),
         role: z.string().nullable(),
-        phone: z.string(),
+        phone: z.string().nullable(),
         email: z.string().nullable(),
         isImportant: z.boolean().nullable(),
     })),
@@ -107,6 +115,7 @@ export const BrochureAnalysisSchema = z.object({
         type: z.string().nullable(),
     })).nullable(),
     recognisedBy: z.array(z.string()).nullable(),
+    otherData: z.array(z.string()).nullable(),
     importantNotes: z.array(z.string()).nullable(),
     summary: z.string(),
 });
