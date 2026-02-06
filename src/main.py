@@ -48,7 +48,7 @@ def _ocr_rendered_pages(pdf_path: str, pdf_type: str, page_text_len: dict):
         try:
             zoom = RENDER_DPI / 72  # render at target DPI
             pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
-            ocr_text = ocr_pixmap(pix)
+            ocr_text = ocr_pixmap(pix, source_type="rendered", use_angle_cls=True)
             if ocr_text and len(ocr_text.strip()) > 0:
                 ocr_results.append(ocr_text)
                 pages_ocr_full.add(page_number)
@@ -75,7 +75,7 @@ def _ocr_embedded_images(pdf_path: str, pdf_type: str, pages_ocr_full: set):
         if img["page"] in pages_ocr_full:
             continue
         try:
-            ocr_text = ocr_pixmap(img["pixmap"])
+            ocr_text = ocr_pixmap(img["pixmap"], source_type="embedded", use_angle_cls=True)
             if ocr_text and len(ocr_text.strip()) > 0:
                 ocr_results.append(ocr_text)
                 print(f"OCR completed for image {i+1}/{len(images)}: {len(ocr_text)} chars")
